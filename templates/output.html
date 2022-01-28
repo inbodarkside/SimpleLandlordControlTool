@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+
+  <body>
+  <div class="sidenav">
+    <div class="title"> Land Owner:</div>
+    <a class="subtitle" href="https://etherscan.io/address/{{owner}}">{{owner}}</a>
+
+      <div class="title"> Showing data from</div>
+      <h1> {{datestart}}</h1>
+      <div class="title">To</div>
+      <h1> {{dateend}}</div>
+  </div>
+  <div class="container main">
+      <hr>
+            <table class="table table-striped" id="data">
+               <thead>
+               <td> KingdomId</td>
+               <td> Name</td>
+               <td> Continent</td>
+               <td> Contribution</td>
+               </thead>
+                <tbody>
+                    {% for row in text %}
+                    <tr>
+                        <td>{{ row['kingdomId'] }}</td>
+                        <td>{{ row['name'] }}</td>
+                        <td>{{ row['continent'] }}</td>
+                        <td>{{ row['total'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+      </div>
+  </body>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+<script>
+     $(document).ready(function () {
+      $('#data').DataTable({
+          "bLengthChange" : false,
+        columns: [
+          {data: 'kingdomId'},
+          {data: 'name', searchable: true},
+          {data: 'continent', orderable: true, searchable: true},
+          {data: 'Contribution', orderable: true, searchable: false}
+        ],
+      });
+    });
+  </script>
+</html>
