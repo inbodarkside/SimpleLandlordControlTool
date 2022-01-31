@@ -1,10 +1,9 @@
 import requests
 from datetime import datetime, timedelta
 from flask import Flask, render_template, request
-import pandas as pd
-from werkzeug.debug import get_current_traceback
 
-app = Flask(__name__,template_folder='templates')
+
+app = Flask(__name__, template_folder='templates')
 
 
 @app.errorhandler(404)
@@ -14,13 +13,11 @@ def not_found_error(error):
 
 @app.errorhandler(500)
 def internal_error(error):
-    #return "500 error"
     return render_template('500.html')
 
 
 @app.errorhandler(Exception)
 def handle_error(e):
-    #return "500 error"
     return render_template('500.html')
 
 
