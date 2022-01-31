@@ -68,6 +68,34 @@ body {
   margin-top: 10px;
 }
 
+.hand{
+  color: #ffff64;
+  padding-top: 10px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  animation: updown 3s ease-out infinite;
+}
+
+.gear{
+  color: #ffff64;
+  width: 100%;
+  text-align: center;
+}
+
+@keyframes updown {
+  50% {
+     transform: translate(0, 20px);
+  }
+}
+
+.loader {
+  display: none;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
 
 .input-container {
   height: 50px;
@@ -137,6 +165,7 @@ body {
 .submit {
   background-color: #08d;
   border-radius: 12px;
+  margin-bottom: 15px;
   border: 0;
   box-sizing: border-box;
   color: #eee;

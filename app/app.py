@@ -26,8 +26,8 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/send', methods=['GET', 'POST'])
-def send():
+@app.route('/data', methods=['GET', 'POST'])
+def data():
     if request.method == 'POST':
         landid = request.form['landid']
         dateend = datetime.today()
