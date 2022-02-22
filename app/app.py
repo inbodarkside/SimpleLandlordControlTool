@@ -7,17 +7,17 @@ app = Flask(__name__, template_folder='templates')
 
 
 @app.errorhandler(404)
-def not_found_error(error):
+def not_found_error():
     return render_template('404.html')
 
 
 @app.errorhandler(500)
-def internal_error(error):
+def internal_error():
     return render_template('500.html')
 
 
 @app.errorhandler(Exception)
-def handle_error(e):
+def handle_error():
     return render_template('500.html')
 
 
